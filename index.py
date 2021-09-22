@@ -40,9 +40,7 @@ def vigenere2(plaintext): #auto-generates a key as long as the message. unbreaka
     for x in key_codes:
         key_array.append(chr(x))
         key = ''.join(key_array)
-    return ("Your encoded message is " + vigenere(plaintext, key) + ". The key used was" + key)
-
-vigenere2("abcdef")
+    return ("Your encoded message is " + vigenere(plaintext, key) + ". The key used was " + key)
 
 encode_decode = float(input("Would you like to 1. encode or 2. decode a message?"))
 if (encode_decode != 3): #so i can skip through prompts for testing
