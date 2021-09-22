@@ -16,7 +16,7 @@ def caesar(plaintext, key): #caesar encipher algorithm
         else:
             shifted_char = chr(shifted_charcode)
             cipher_array.append(shifted_char)
-    print(''.join(cipher_array))
+    return(''.join(cipher_array))
 
 def vigenere(plaintext, key):
     plain_array = string_split(plaintext)
@@ -30,16 +30,13 @@ def vigenere(plaintext, key):
         key_pos += 1
         if (key_pos >= len(key_array)):
             key_pos = 0
-    ciphertext =''.join(cipher_array)
-    return ciphertext
+    return ''.join(cipher_array)
 
 def vigenere2(plaintext): #auto-generates a key as long as the message. unbreakable
-    key_codes = [random.randint(65,90) for i in range(0, len(string_split(plaintext)))]
-    key_array = []
     key = []
-    for x in key_codes:
-        key_array.append(chr(x))
-        key = ''.join(key_array)
+    for x in [random.randint(65,90) for i in range(0, len(string_split(plaintext)))]:
+        key.append(chr(x))
+    key = ''.join(key)    
     return ("Your encoded message is " + vigenere(plaintext, key) + ". The key used was " + key)
 
 encode_decode = float(input("Would you like to 1. encode or 2. decode a message?"))
